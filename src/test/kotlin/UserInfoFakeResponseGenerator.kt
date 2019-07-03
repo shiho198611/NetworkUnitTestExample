@@ -13,7 +13,7 @@ object UserInfoFakeResponseGenerator {
         val response = MockResponse()
         response.setResponseCode(200)
 
-        val fakeUser = UserInfo(SUCCESS_AGE, SUCCESS_DESC, SUCCESS_NAME)
+        val fakeUser = getSuccessUserInfoModel()
 
         response.setBody(Gson().toJson(fakeUser))
         return response
@@ -35,6 +35,10 @@ object UserInfoFakeResponseGenerator {
         val response = MockResponse()
         response.socketPolicy = SocketPolicy.NO_RESPONSE
         return response
+    }
+
+    fun getSuccessUserInfoModel(): UserInfo {
+        return UserInfo(SUCCESS_AGE, SUCCESS_DESC, SUCCESS_NAME)
     }
 
 }

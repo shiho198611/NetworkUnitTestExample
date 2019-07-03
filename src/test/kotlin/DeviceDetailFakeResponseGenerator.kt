@@ -1,6 +1,11 @@
 import com.google.gson.Gson
 import network.response.DeviceDetailInfo
+import okhttp3.MediaType
+import okhttp3.ResponseBody
 import okhttp3.mockwebserver.MockResponse
+import org.mockito.Mockito
+import retrofit2.HttpException
+import retrofit2.Response
 
 object DeviceDetailFakeResponseGenerator {
 
@@ -16,7 +21,7 @@ object DeviceDetailFakeResponseGenerator {
 
     fun genServerErrorCase(): MockResponse {
         val failRes = MockResponse()
-        failRes.setResponseCode(50)
+        failRes.setResponseCode(500)
 
         return failRes
     }
